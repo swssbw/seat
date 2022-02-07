@@ -2,8 +2,9 @@
 <html>
 
 <head>
-	<title>Parcel Sandbox</title>
-	<meta charset="UTF-8" />
+  <title>좌석예약 한방에 보기</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/index.css">
   <style>
     body {
       margin: 0;
@@ -17,50 +18,71 @@
       justify-content: center;
     }
 
-    .items_inner1 {
-      width:50vw; 
-      height:100vh;
-    }
-
-    .items_inner2 {
-      width:50vw; 
-      /* height:500px; */
-      height:50vh;
-      /* position: relative;
-      top: -150px; */
-    }
-
-    .items_inner3 {
-      width:50vw; 
-      /* height:500px; */
-      height:50vh;
+    .column1 {
+      display: flex;
+      width: 49vw;
+      flex-direction: column;
     }
 
     .column2 {
       display: flex;
+      width: 49vw;
       flex-direction: column;
     }
 
-    #docs-chrome{
-      display: none;
+    .items1 {
+      height: 100vh;
+    }
+
+    .items2 {
+      height: 50vh;
+    }
+
+    .items3 {
+      height: 50vh;
+    }
+
+    @media all and (max-width: 760px) {
+      #items {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .column1, .column2 {
+        width: 98vw;
+      }
+
+      .items1, .items2, .items3 {
+        height: 420px;
+      }
+
+      .items2, .items3 {
+        overflow-y: hidden;
+      }
     }
   </style>
 </head>
 
 <body>
   <div id="items">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJT6AlqGneoc_4vxSbapAyMC6melfdvm_gKRS-S43QaQqzYA/viewform" class="items_inner1" ></iframe>
+    <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJT6AlqGneoc_4vxSbapAyMC6melfdvm_gKRS-S43QaQqzYA/viewform" class="items_inner1" ></iframe> -->
+    <div class="column1">
+      <iframe id="form"
+        src="https://docs.google.com/forms/d/e/1FAIpQLScJT6AlqGneoc_4vxSbapAyMC6melfdvm_gKRS-S43QaQqzYA/viewform?entry.622473017=김민지&entry.1342738942=1&entry.1804285979=minjikim&entry.1786571333=10"
+        class="items1"></iframe>
+    </div>
     <div class="column2">
-      <iframe id="iframe_content" src="https://docs.google.com/spreadsheets/d/1Fba6nUUGY9uGN5994iOvJdRD_O3EHsKLu5VqjLVuhOw/edit#gid=1998939352" class="items_inner2" ></iframe>
-      <iframe id="iframe_content" src="https://docs.google.com/spreadsheets/d/1Fba6nUUGY9uGN5994iOvJdRD_O3EHsKLu5VqjLVuhOw/edit#gid=1051676199" class="items_inner3" ></iframe>
+      <iframe id="iframe_content"
+        src="https://docs.google.com/spreadsheets/d/1Fba6nUUGY9uGN5994iOvJdRD_O3EHsKLu5VqjLVuhOw/edit#gid=1998939352"
+        class="items2"></iframe>
+      <iframe id="iframe_content"
+        src="https://docs.google.com/spreadsheets/d/1Fba6nUUGY9uGN5994iOvJdRD_O3EHsKLu5VqjLVuhOw/edit#gid=1051676199"
+        class="items3"></iframe>
     </div>
   </div>
-	<script>
-    
-
-	</script>
-	<!-- <script src="src/index.js" defer>
-	</script> -->
+  <script>
+    document.getElementById("form").contentDocument.scrollTo(0, 200);
+  </script>
 </body>
 
 </html>
