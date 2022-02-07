@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Parcel Sandbox</title>
+	<meta charset="UTF-8" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #items {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .items_inner1 {
+      width:50vw; 
+      height:100vh;
+    }
+
+    .items_inner2 {
+      width:50vw; 
+      /* height:500px; */
+      height:50vh;
+      /* position: relative;
+      top: -150px; */
+    }
+
+    .items_inner3 {
+      width:50vw; 
+      /* height:500px; */
+      height:50vh;
+    }
+
+    .column2 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #docs-chrome{
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="items">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScJT6AlqGneoc_4vxSbapAyMC6melfdvm_gKRS-S43QaQqzYA/viewform" class="items_inner1" ></iframe>
+    <div class="column2">
+      <iframe id="iframe_content" src="https://docs.google.com/spreadsheets/d/1Fba6nUUGY9uGN5994iOvJdRD_O3EHsKLu5VqjLVuhOw/edit#gid=1998939352" class="items_inner2" ></iframe>
+      <iframe id="iframe_content" src="https://docs.google.com/spreadsheets/d/1Fba6nUUGY9uGN5994iOvJdRD_O3EHsKLu5VqjLVuhOw/edit#gid=1051676199" class="items_inner3" ></iframe>
+    </div>
+  </div>
+	<script>
+    
+
+	</script>
+	<!-- <script src="src/index.js" defer>
+	</script> -->
+</body>
+
+</html>
