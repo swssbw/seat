@@ -9,7 +9,7 @@ const clock = document.querySelector("#clock");
 
 function showHelpIMG() {
   clock.addEventListener("click", () => {
-    window.open("help.PNG", "a", "width=900, height=600, left=100, top=50");
+    window.open("헷갈릴때_보면_더_헷갈리는_그림.PNG", "a", "width=900, height=600, left=100, top=50");
   })
 }
 
