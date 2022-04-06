@@ -5,11 +5,15 @@
   <title>👀 좌석예약 한눈에</title>
   <meta charset="UTF-8" />
   <link rel="favicon" href="./favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
   <script src="./index.js" defer></script>
   <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
   <style>
     body {
+      font-family: 'Noto Sans KR', sans-serif;
       margin: 0;
       padding: 0;
     }
@@ -45,6 +49,24 @@
       height: 50vh;
     }
 
+    #clock {
+      text-align: center;
+      margin: 5px 0;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column
+    }
+
+    #clock > .line1,.line2 {
+      margin: 0;
+    }
+
+    .highlight{
+      color :red;
+      font-size: 40px;
+    }
+
     @media all and (max-width: 1024px) {
       #items {
         display: flex;
@@ -66,29 +88,19 @@
       .items3 {
         display: none;
       }
+
+      .line1 {
+        display: none;
+      }
+
+      #clock {
+        font-size: 24px;
+      }
     }
 
-    #clock {
-      text-align: center;
-      margin: 5px 0;
-      font-size: 18px;
-      font-weight: bold;
-      display: flex;
-      flex-direction: column
-    }
-
-    #clock > .line1,.line2 {
-      margin: 0;
-    }
-
-    .highlight{
-      color :red;
-      font-size: 40px;
-    }
 
   </style>
 </head>
-<!-- src="https://docs.google.com/forms/d/e/1FAIpQLScJT6AlqGneoc_4vxSbapAyMC6melfdvm_gKRS-S43QaQqzYA/viewform?entry.622473017=김민지&entry.975215089=3&entry.1804285979=minjikim&entry.1786571333=10" -->
 <body>
   <div id="items">
     <div class="column1">
