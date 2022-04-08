@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>👀 좌석예약 한눈에</title>
+  <meta charset="UTF-8" />
+  <link rel="favicon" href="./favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+  <script src="./index.js" defer></script>
+  <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #items {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .column1 {
+      display: flex;
+      width: 49vw;
+      flex-direction: column;
+    }
+
+    .column2 {
+      display: flex;
+      width: 49vw;
+      flex-direction: column;
+    }
+
+    .items1 {
+      height: 85vh;
+    }
+
+    .items2 {
+      height: 50vh;
+    }
+
+    .items3 {
+      height: 50vh;
+    }
+
+    #clock {
+      text-align: center;
+      margin: 5px 0;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    #clock > .line1,.line2 {
+      margin: 0;
+    }
+
+    .highlight{
+      color :red;
+      font-size: 40px;
+    }
+
+    @media all and (max-width: 1024px) {
+      #items {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .column1, .column2 {
+        width: 100vw;
+      }
+
+      .items1 {
+        height: 60vh;
+      }
+
+      .items2 {
+        height: 40vh;
+      }
+
+      .items3 {
+        display: none;
+      }
+
+      .line1 {
+        display: none;
+      }
+
+      #form {
+        margin-top: 60px;
+      }
+
+      #clock {
+        font-size: 24px;
+        height: 60px;
+        position: fixed;
+        top: 0;
+        background-color: white;
+        border-bottom: 2px solid black;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="items">
+    <div class="column1">
+      <div id="clock"></div>
+      <iframe id="form"
+        src="https://docs.google.com/forms/d/e/1FAIpQLScJT6AlqGneoc_4vxSbapAyMC6melfdvm_gKRS-S43QaQqzYA/viewform"
+        class="items1"></iframe>
+    </div>
+    <div class="column2">
+      <iframe id="iframe_content"
+        src="https://docs.google.com/spreadsheets/d/1Fba6nUUGY9uGN5994iOvJdRD_O3EHsKLu5VqjLVuhOw/edit#gid=1998939352"
+        class="items2"></iframe>
+      <iframe id="iframe_content"
+        src="https://docs.google.com/spreadsheets/d/1Fba6nUUGY9uGN5994iOvJdRD_O3EHsKLu5VqjLVuhOw/edit#gid=1051676199"
+        class="items3"></iframe>
+    </div>
+  </div>
+</body>
+
+</html>
