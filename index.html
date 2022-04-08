@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 
 <head>
   <title>👀 좌석예약 한눈에</title>
   <meta charset="UTF-8" />
+  <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
   <link rel="favicon" href="./favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +12,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
   <script src="./index.js" defer></script>
   <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000"/>
   <style>
     body {
       font-family: 'Noto Sans KR', sans-serif;
@@ -129,6 +132,13 @@
         class="items3"></iframe>
     </div>
   </div>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service_worker.js').then(() => {
+        console.log("서비스워커 등록됨")
+      })
+    }
+  </script>
 </body>
 
 </html>
