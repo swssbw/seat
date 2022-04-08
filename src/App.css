@@ -1,0 +1,96 @@
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#items {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.column1 {
+  display: flex;
+  width: 49vw;
+  flex-direction: column;
+}
+
+.column2 {
+  display: flex;
+  width: 49vw;
+  flex-direction: column;
+}
+
+.items1 {
+  height: 85vh;
+}
+
+.items2 {
+  height: 50vh;
+}
+
+.items3 {
+  height: 50vh;
+}
+
+#clock {
+  text-align: center;
+  margin: 5px 0;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  cursor: pointer;
+}
+
+#clock > .line1,.line2 {
+  margin: 0;
+}
+
+.highlight{
+  color :red;
+  font-size: 40px;
+}
+
+@media all and (max-width: 1024px) {
+  #items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column1, .column2 {
+    width: 100vw;
+  }
+
+  .items1 {
+    height: 60vh;
+  }
+
+  .items2 {
+    height: 40vh;
+  }
+
+  .items3 {
+    display: none;
+  }
+
+  .line1 {
+    display: none;
+  }
+
+  #form {
+    margin-top: 60px;
+  }
+
+  #clock {
+    font-size: 24px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    border-bottom: 2px solid black;
+  }
+}
