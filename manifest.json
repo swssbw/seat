@@ -3,12 +3,7 @@
   "name": "좌석예약 한눈에",
   "icons": [
     {
-      "src": "./spwa",
-      "sizes": "64x64",
-      "type": "image/png"
-    },
-    {
-      "src": "./spwa512.png",
+      "src": "./pwa512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
