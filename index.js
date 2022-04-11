@@ -42,7 +42,7 @@ function getClock() {
 
   clock.innerHTML = `
   <p class="line1">현재 시각 ${h}:${m}:${s}</p>
-  <p class="line2">지금 예약하면 <span class="highlight">${Dayfor}</span> 좌석이 예약됩니다.</p>
+  <p class="line2">지금 예약하면 <span class="highlight">${Dayfor}</span> 좌석이 예약됩니다...</p>
   `;
 }
 
