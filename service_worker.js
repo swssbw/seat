@@ -1,34 +1,48 @@
-const sCacheName ="practice-pwa";//캐시 이름 선언
-const aFilesToCache = ['./','./manifest.json', './pwa512.png'];//캐시할 파일 선언
+const cacheName ="cache123456";//캐시 이름 선언
+const cacheFiles = ['./','./index.html','./manifest.json', './pwa512.png'];// 캐시할 리소스
 
 //서비스워커 설치하고 캐시파일 저장
-self.addEventListener('install', pEvent => {
-    console.log('서비스워커를 설치합니다.');
-    pEvent.waitUntil(
-        caches.open(sCacheName)
-        .then(pCache => {
-          console.log('파일을 캐시에 저장합니다.');
-          return pCache.addAll(aFilesToCache);
-        })
-      );
-});
-// 고유번호 할당받은 서비스 워커 동작 시작
-self.addEventListener('activate', pEvent => {
-    console.log('서비스워커 동작 시작');
+self.addEventListener('install', event => {
+  event.waitUntil(
+      caches
+      .open(cacheName)
+      .then(cache => {
+        // cacheName 에 addAll 메소드로 캐싱할 리소스를 다 넣어줌
+        return cache.addAll(cacheFiles);
+      })
+      .then(() => {
+        // 설치 후 바로 활성화 단계로 들어가게 해줌
+        return self.skipWaiting();
+      })
+  );
 });
 
-
-//데이터 요청시 네트워크 또는 캐시에서 찾아 반환 
-self.addEventListener('fetch', pEvent => {
-    pEvent.respondWith(
-      caches.match(pEvent.request)
-      .then(response => {
-        if (!response) {
-          console.log("네트워크에서 데이터 요청!", pEvent.request)
-          return fetch(pEvent.request);
+// 서비스워커 작동 시작(활성화)
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(key => {
+      // 불필요한 캐시는 삭제해줌 (현재 캐시와 이름이 다른 캐시 삭제)
+      return Promise.all(key.map(k => {
+        if(k !== cacheName) {
+          return caches.delete(k);
         }
-        console.log("캐시에서 데이터 요청!", pEvent.request)
-        return response;
-      }).catch(err => console.log(err))
+      }))
+    })
+  )
+});
+
+
+// 어딘가에서 리소스를 가져올때 실행됨
+// 데이터 요청시 네트워크 또는 캐시에서 찾아 반환 
+self.addEventListener('fetch', event => {
+    event.respondWith(
+      caches
+      .match(event.request)
+      .then(response => {
+        // 요청된 내용이 캐시에 있으면 캐싱한 데이터 제공, 아니면 fetch 시킴
+        return response || fetch(event.request)
+      }).catch(err => 
+        console.log(err)
+      )
     );
   });
